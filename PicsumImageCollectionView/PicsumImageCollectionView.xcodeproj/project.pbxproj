@@ -18,6 +18,7 @@
 		7851767C2775B09500BFBF6C /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851767B2775B09500BFBF6C /* ImageAPI.swift */; };
 		7851767F2775B3EE00BFBF6C /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851767E2775B3EE00BFBF6C /* DataSet.swift */; };
 		785176812775B7F400BFBF6C /* UIimage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176802775B7F400BFBF6C /* UIimage+.swift */; };
+		785176832775C26E00BFBF6C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176822775C26E00BFBF6C /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		7851767B2775B09500BFBF6C /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		7851767E2775B3EE00BFBF6C /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
 		785176802775B7F400BFBF6C /* UIimage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+.swift"; sourceTree = "<group>"; };
+		785176822775C26E00BFBF6C /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		88740DB2C858364B203D316A /* Pods-PicsumImageCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsumImageCollectionView.debug.xcconfig"; path = "Target Support Files/Pods-PicsumImageCollectionView/Pods-PicsumImageCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 			children = (
 				785176632775985E00BFBF6C /* AppDelegate.swift */,
 				785176672775985E00BFBF6C /* MainViewController.swift */,
+				785176822775C26E00BFBF6C /* ImageViewController.swift */,
 				7851767927759F8A00BFBF6C /* CollectionViewCell.swift */,
 				7851767727759DBA00BFBF6C /* UIColor+.swift */,
 				785176802775B7F400BFBF6C /* UIimage+.swift */,
@@ -224,6 +227,7 @@
 				7851767A27759F8A00BFBF6C /* CollectionViewCell.swift in Sources */,
 				7851767C2775B09500BFBF6C /* ImageAPI.swift in Sources */,
 				7851767827759DBA00BFBF6C /* UIColor+.swift in Sources */,
+				785176832775C26E00BFBF6C /* ImageViewController.swift in Sources */,
 				785176812775B7F400BFBF6C /* UIimage+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +381,7 @@
 				DEVELOPMENT_TEAM = 85JQMF8YT8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicsumImageCollectionView/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이미지를 저장합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -407,6 +412,7 @@
 				DEVELOPMENT_TEAM = 85JQMF8YT8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PicsumImageCollectionView/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이미지를 저장합니다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

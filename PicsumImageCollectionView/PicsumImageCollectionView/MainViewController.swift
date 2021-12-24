@@ -95,6 +95,15 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(#function)
+        
+        guard let dataSet = imageDic[indexPath],
+              let image = dataSet.image.value else { return }
+        
+        let imageVC = ImageViewController()
+        imageVC.imageView.image = image
+        let naviCon = UINavigationController(rootViewController: imageVC)
+        naviCon.modalPresentationStyle = .fullScreen
+        self.present(naviCon, animated: true, completion: nil)
     }
 }
 
