@@ -1,0 +1,31 @@
+//
+//  AppDelegate.swift
+//  PicsumImageCollectionView
+//
+//  Created by JinGu's iMac on 2021/12/24.
+//
+
+import UIKit
+
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+    var naviCon : UINavigationController?
+    var mainVC : MainViewController?
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        mainVC = MainViewController()
+        naviCon = UINavigationController(rootViewController: mainVC!)
+
+        window?.rootViewController = naviCon
+                
+        window?.makeKeyAndVisible()
+        
+        return true
+    }
+
+   
+}
+

@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6342AC4021377BFE83E92F8F /* Pods_PicsumImageCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E8B14F59635601CF53F9F2 /* Pods_PicsumImageCollectionView.framework */; };
+		785176642775985E00BFBF6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176632775985E00BFBF6C /* AppDelegate.swift */; };
+		785176682775985E00BFBF6C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176672775985E00BFBF6C /* MainViewController.swift */; };
+		7851766B2775985E00BFBF6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 785176692775985E00BFBF6C /* Main.storyboard */; };
+		7851766D2775985F00BFBF6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7851766C2775985F00BFBF6C /* Assets.xcassets */; };
+		785176702775985F00BFBF6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7851766E2775985F00BFBF6C /* LaunchScreen.storyboard */; };
+		7851767827759DBA00BFBF6C /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851767727759DBA00BFBF6C /* UIColor+.swift */; };
+		7851767A27759F8A00BFBF6C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851767927759F8A00BFBF6C /* CollectionViewCell.swift */; };
+		7851767C2775B09500BFBF6C /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851767B2775B09500BFBF6C /* ImageAPI.swift */; };
+		7851767F2775B3EE00BFBF6C /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851767E2775B3EE00BFBF6C /* DataSet.swift */; };
+		785176812775B7F400BFBF6C /* UIimage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176802775B7F400BFBF6C /* UIimage+.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		38E8B14F59635601CF53F9F2 /* Pods_PicsumImageCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PicsumImageCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5414DDC9653D7BB6C2DD492D /* Pods-PicsumImageCollectionView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsumImageCollectionView.release.xcconfig"; path = "Target Support Files/Pods-PicsumImageCollectionView/Pods-PicsumImageCollectionView.release.xcconfig"; sourceTree = "<group>"; };
+		785176602775985E00BFBF6C /* PicsumImageCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PicsumImageCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		785176632775985E00BFBF6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		785176672775985E00BFBF6C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7851766A2775985E00BFBF6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7851766C2775985F00BFBF6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7851766F2775985F00BFBF6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		785176712775985F00BFBF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7851767727759DBA00BFBF6C /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		7851767927759F8A00BFBF6C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		7851767B2775B09500BFBF6C /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
+		7851767E2775B3EE00BFBF6C /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
+		785176802775B7F400BFBF6C /* UIimage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+.swift"; sourceTree = "<group>"; };
+		88740DB2C858364B203D316A /* Pods-PicsumImageCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsumImageCollectionView.debug.xcconfig"; path = "Target Support Files/Pods-PicsumImageCollectionView/Pods-PicsumImageCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7851765D2775985E00BFBF6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6342AC4021377BFE83E92F8F /* Pods_PicsumImageCollectionView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6A60B758DEA4BB7F1398AC86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38E8B14F59635601CF53F9F2 /* Pods_PicsumImageCollectionView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		785176572775985D00BFBF6C = {
+			isa = PBXGroup;
+			children = (
+				785176622775985E00BFBF6C /* PicsumImageCollectionView */,
+				785176612775985E00BFBF6C /* Products */,
+				B12034CE97D29550B01BB8FF /* Pods */,
+				6A60B758DEA4BB7F1398AC86 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		785176612775985E00BFBF6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				785176602775985E00BFBF6C /* PicsumImageCollectionView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		785176622775985E00BFBF6C /* PicsumImageCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				785176632775985E00BFBF6C /* AppDelegate.swift */,
+				785176672775985E00BFBF6C /* MainViewController.swift */,
+				7851767927759F8A00BFBF6C /* CollectionViewCell.swift */,
+				7851767727759DBA00BFBF6C /* UIColor+.swift */,
+				785176802775B7F400BFBF6C /* UIimage+.swift */,
+				7851767B2775B09500BFBF6C /* ImageAPI.swift */,
+				7851767E2775B3EE00BFBF6C /* DataSet.swift */,
+				785176692775985E00BFBF6C /* Main.storyboard */,
+				7851766C2775985F00BFBF6C /* Assets.xcassets */,
+				7851766E2775985F00BFBF6C /* LaunchScreen.storyboard */,
+				785176712775985F00BFBF6C /* Info.plist */,
+			);
+			path = PicsumImageCollectionView;
+			sourceTree = "<group>";
+		};
+		B12034CE97D29550B01BB8FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88740DB2C858364B203D316A /* Pods-PicsumImageCollectionView.debug.xcconfig */,
+				5414DDC9653D7BB6C2DD492D /* Pods-PicsumImageCollectionView.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7851765F2775985E00BFBF6C /* PicsumImageCollectionView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 785176742775985F00BFBF6C /* Build configuration list for PBXNativeTarget "PicsumImageCollectionView" */;
+			buildPhases = (
+				DA707F7B1B538869FF2634CE /* [CP] Check Pods Manifest.lock */,
+				7851765C2775985E00BFBF6C /* Sources */,
+				7851765D2775985E00BFBF6C /* Frameworks */,
+				7851765E2775985E00BFBF6C /* Resources */,
+				46D86697C552C84628D51B9B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PicsumImageCollectionView;
+			productName = PicsumImageCollectionView;
+			productReference = 785176602775985E00BFBF6C /* PicsumImageCollectionView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		785176582775985D00BFBF6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					7851765F2775985E00BFBF6C = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 7851765B2775985D00BFBF6C /* Build configuration list for PBXProject "PicsumImageCollectionView" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 785176572775985D00BFBF6C;
+			productRefGroup = 785176612775985E00BFBF6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7851765F2775985E00BFBF6C /* PicsumImageCollectionView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7851765E2775985E00BFBF6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				785176702775985F00BFBF6C /* LaunchScreen.storyboard in Resources */,
+				7851766D2775985F00BFBF6C /* Assets.xcassets in Resources */,
+				7851766B2775985E00BFBF6C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46D86697C552C84628D51B9B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PicsumImageCollectionView/Pods-PicsumImageCollectionView-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PicsumImageCollectionView/Pods-PicsumImageCollectionView-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PicsumImageCollectionView/Pods-PicsumImageCollectionView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA707F7B1B538869FF2634CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PicsumImageCollectionView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7851765C2775985E00BFBF6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7851767F2775B3EE00BFBF6C /* DataSet.swift in Sources */,
+				785176682775985E00BFBF6C /* MainViewController.swift in Sources */,
+				785176642775985E00BFBF6C /* AppDelegate.swift in Sources */,
+				7851767A27759F8A00BFBF6C /* CollectionViewCell.swift in Sources */,
+				7851767C2775B09500BFBF6C /* ImageAPI.swift in Sources */,
+				7851767827759DBA00BFBF6C /* UIColor+.swift in Sources */,
+				785176812775B7F400BFBF6C /* UIimage+.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		785176692775985E00BFBF6C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7851766A2775985E00BFBF6C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7851766E2775985F00BFBF6C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7851766F2775985F00BFBF6C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		785176722775985F00BFBF6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		785176732775985F00BFBF6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		785176752775985F00BFBF6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88740DB2C858364B203D316A /* Pods-PicsumImageCollectionView.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 85JQMF8YT8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PicsumImageCollectionView/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.m2community.PicsumImageCollectionView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		785176762775985F00BFBF6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5414DDC9653D7BB6C2DD492D /* Pods-PicsumImageCollectionView.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 85JQMF8YT8;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PicsumImageCollectionView/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.m2community.PicsumImageCollectionView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7851765B2775985D00BFBF6C /* Build configuration list for PBXProject "PicsumImageCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				785176722775985F00BFBF6C /* Debug */,
+				785176732775985F00BFBF6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		785176742775985F00BFBF6C /* Build configuration list for PBXNativeTarget "PicsumImageCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				785176752775985F00BFBF6C /* Debug */,
+				785176762775985F00BFBF6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 785176582775985D00BFBF6C /* Project object */;
+}

@@ -1,0 +1,53 @@
+PODS:
+  - Differentiator (4.0.1)
+  - MBProgressHUD (1.2.0)
+  - "NSObject+Rx (5.1.0)":
+    - RxSwift (~> 5.1)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.3):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SnapKit (5.0.1)
+  - Toaster (2.3.0)
+
+DEPENDENCIES:
+  - MBProgressHUD (~> 1.2.0)
+  - "NSObject+Rx (= 5.1.0)"
+  - RxCocoa (= 5.1.1)
+  - RxDataSources (= 4.0.1)
+  - RxSwift (= 5.1.1)
+  - SnapKit (~> 5.0.0)
+  - Toaster (= 2.3.0)
+
+SPEC REPOS:
+  trunk:
+    - Differentiator
+    - MBProgressHUD
+    - "NSObject+Rx"
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - Toaster
+
+SPEC CHECKSUMS:
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
+
+PODFILE CHECKSUM: be5b0c4fa55c092386fc252ed28943f7d9436544
+
+COCOAPODS: 1.11.2
