@@ -16,9 +16,11 @@ class MainViewController: UIViewController {
     
     var imageDic = [IndexPath:DataSet]()
     
+    let numberOfImages : Int = 50
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         [imageCollectionView]
             .forEach{ self.view.addSubview($0) }
         
@@ -71,7 +73,7 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 50
+        return numberOfImages
     }
    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,10 +94,6 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(#function)
-    }
-    
-    func cellSelected(_ indexPath: IndexPath) {
         print(#function)
     }
 }

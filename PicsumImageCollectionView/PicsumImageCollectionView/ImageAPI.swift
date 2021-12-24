@@ -25,6 +25,7 @@ class ImageAPI {
     
     func fetch() -> Driver<UIImage?> {
         return urlSession.rx.data(request: request)
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
             .map{ UIImage(data: $0) }
             .asDriver(onErrorJustReturn: nil)
     }
