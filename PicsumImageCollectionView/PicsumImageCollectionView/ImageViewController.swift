@@ -34,6 +34,7 @@ class ImageViewController : UIViewController {
     }
     
     @objc func close(){
+        print("close")
         self.dismiss(animated: true , completion: nil)
     }
     

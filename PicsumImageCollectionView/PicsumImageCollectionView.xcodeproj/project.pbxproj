@@ -19,6 +19,7 @@
 		7851767F2775B3EE00BFBF6C /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851767E2775B3EE00BFBF6C /* DataSet.swift */; };
 		785176812775B7F400BFBF6C /* UIimage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176802775B7F400BFBF6C /* UIimage+.swift */; };
 		785176832775C26E00BFBF6C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176822775C26E00BFBF6C /* ImageViewController.swift */; };
+		785176852779499600BFBF6C /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176842779499600BFBF6C /* TransitionAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		7851767E2775B3EE00BFBF6C /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
 		785176802775B7F400BFBF6C /* UIimage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+.swift"; sourceTree = "<group>"; };
 		785176822775C26E00BFBF6C /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		785176842779499600BFBF6C /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		88740DB2C858364B203D316A /* Pods-PicsumImageCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsumImageCollectionView.debug.xcconfig"; path = "Target Support Files/Pods-PicsumImageCollectionView/Pods-PicsumImageCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 				785176802775B7F400BFBF6C /* UIimage+.swift */,
 				7851767B2775B09500BFBF6C /* ImageAPI.swift */,
 				7851767E2775B3EE00BFBF6C /* DataSet.swift */,
+				785176842779499600BFBF6C /* TransitionAnimator.swift */,
 				785176692775985E00BFBF6C /* Main.storyboard */,
 				7851766C2775985F00BFBF6C /* Assets.xcassets */,
 				7851766E2775985F00BFBF6C /* LaunchScreen.storyboard */,
@@ -223,6 +226,7 @@
 			files = (
 				7851767F2775B3EE00BFBF6C /* DataSet.swift in Sources */,
 				785176682775985E00BFBF6C /* MainViewController.swift in Sources */,
+				785176852779499600BFBF6C /* TransitionAnimator.swift in Sources */,
 				785176642775985E00BFBF6C /* AppDelegate.swift in Sources */,
 				7851767A27759F8A00BFBF6C /* CollectionViewCell.swift in Sources */,
 				7851767C2775B09500BFBF6C /* ImageAPI.swift in Sources */,

@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     
     let numberOfImages : Int = 50
     
+    let interactor = Interactor()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -102,8 +104,25 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
         let imageVC = ImageViewController()
         imageVC.imageView.image = image
         let naviCon = UINavigationController(rootViewController: imageVC)
-        naviCon.modalPresentationStyle = .fullScreen
+//        naviCon.modalPresentationStyle = .fullScreen
+        naviCon.modalPresentationStyle = .overFullScreen
+        naviCon.transitioningDelegate = self
         self.present(naviCon, animated: true, completion: nil)
     }
 }
 
+
+extension MainViewController : UIViewControllerTransitioningDelegate {
+    
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//
+//    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
+    
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
+    }
+}
