@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         naviCon = UINavigationController(rootViewController: mainVC!)
 
         window?.rootViewController = naviCon
-                
+
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+        
         window?.makeKeyAndVisible()
         
         return true
