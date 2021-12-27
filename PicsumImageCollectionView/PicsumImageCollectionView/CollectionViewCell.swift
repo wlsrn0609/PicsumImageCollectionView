@@ -15,6 +15,8 @@ class CollectionViewCell : UICollectionViewCell {
     
     let imageView = UIImageView()
     
+    var dataSet : DataSet?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -30,6 +32,7 @@ class CollectionViewCell : UICollectionViewCell {
         super.prepareForReuse()
         
         self.imageView.image = nil
+        self.dataSet?.disposable?.dispose()
     }
     
     required init?(coder: NSCoder) {

@@ -89,11 +89,14 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
         
         let dataSet = imageDic[indexPath] ?? DataSet()
         imageDic[indexPath] = dataSet
+        cell.dataSet = dataSet
         
         dataSet.image
             .map{ $0?.resizeImage(toSize: cell.imageView.frame.size) }
             .bind(to: cell.imageView.rx.image)
             .disposed(by: rx.disposeBag)
+        
+        dataSet.fetch()
         
         return cell
     }
