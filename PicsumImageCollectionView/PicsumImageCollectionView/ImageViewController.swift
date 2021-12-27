@@ -11,8 +11,8 @@ import UIKit
 class ImageViewController : UIViewController {
     
     let imageView = UIImageView()
-    
-    var originImageFrame : CGRect = CGRect.zero
+    var image : UIImage?
+    var cellFrame : CGRect = CGRect.zero
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +28,13 @@ class ImageViewController : UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.close))
         
-        imageView.snp.makeConstraints{ [weak self] in
-            guard let self = self else { return }
-            $0.leading.trailing.top.bottom.equalTo(self.view.safeAreaLayoutGuide)
-        }
+        let naviBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 50
+        let imageViewY = naviBarHeight + statusBarHeight
+        let bottomSafeAreaHeight = appDel.window?.safeAreaInsets.bottom ?? 0
+        let imageViewHeight = SCREEN.HEIGHT - imageViewY - bottomSafeAreaHeight
+        imageView.frame = CGRect(x: 0, y: imageViewY, width: SCREEN.WIDTH, height: imageViewHeight)
         imageView.contentMode = .scaleAspectFit
+        imageView.image = image
     }
     
     @objc func close(){

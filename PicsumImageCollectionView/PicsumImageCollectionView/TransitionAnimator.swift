@@ -25,12 +25,16 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
            let fromImageVC = fromNaviCon.viewControllers.first as? ImageViewController
         else { return }
         
-
-        let afterFrame = fromImageVC.originImageFrame
+        guard let toNaviCon = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? UINavigationController,
+              let toMainVC = toNaviCon.viewControllers.first as? MainViewController
+        else { return }
+        
+        toMainVC.tempImageView?.frame = fromImageVC.imageView.frame
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
-            fromImageVC.view.frame = afterFrame
             fromNaviCon.view.alpha = 0
+            fromImageVC.imageView.frame = fromImageVC.cellFrame
+            toMainVC.tempImageView?.frame = fromImageVC.cellFrame
         } completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
@@ -53,29 +57,18 @@ class PresentAnimator : NSObject, UIViewControllerAnimatedTransitioning {
               let toImageVC = toNaviCon.viewControllers.first as? ImageViewController
         else { return }
         
-        guard let image = toImageVC.imageView.image else { return }
-        
         let containerView = transitionContext.containerView
         containerView.insertSubview(toNaviCon.view, belowSubview: fromNaviCon.view)
         
         toNaviCon.view.alpha = 0
         
-        
-        toImageVC.imageView.snp.remakeConstraints{
-            $0.leading.equalTo(toImageVC.originImageFrame.origin.x)
-            $0.top.equalTo(toImageVC.originImageFrame.origin.y)
-            $0.width.equalTo(toImageVC.originImageFrame.size.width)
-            $0.height.equalTo(toImageVC.originImageFrame.size.height)
-        }
-        toImageVC.view.layoutIfNeeded()
-        
-        toImageVC.imageView.snp.remakeConstraints{
-            $0.leading.trailing.top.bottom.equalTo(toImageVC.view.safeAreaLayoutGuide)
-        }
+        let originFrame = toImageVC.imageView.frame
+        toImageVC.imageView.frame = toImageVC.cellFrame
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
-            toImageVC.view.layoutIfNeeded()
             toNaviCon.view.alpha = 1
+            toImageVC.imageView.frame = originFrame
+            fromMainVC.tempImageView?.frame = originFrame
         } completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }

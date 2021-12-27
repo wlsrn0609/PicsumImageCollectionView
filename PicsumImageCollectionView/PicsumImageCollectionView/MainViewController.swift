@@ -105,15 +105,15 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
         
         guard let att = collectionView.layoutAttributesForItem(at: indexPath) else { return }
         let cellFrame = collectionView.convert(att.frame, to: self.view)
-        print("cellFrame:\(cellFrame)")
 
-//        tempImageView = UIImageView(frame: cellFrame)
-//        self.view.addSubview(tempImageView!)
-//        tempImageView?.image = image
+        tempImageView = UIImageView(frame: cellFrame)
+        tempImageView?.image = image
+        tempImageView?.contentMode = .scaleAspectFit
+        self.view.addSubview(tempImageView!)
         
         let imageVC = ImageViewController()
-        imageVC.imageView.image = image
-        imageVC.originImageFrame = cellFrame
+        imageVC.image = image
+        imageVC.cellFrame = cellFrame
         let naviCon = UINavigationController(rootViewController: imageVC)
         naviCon.modalPresentationStyle = .overFullScreen
         naviCon.transitioningDelegate = self
