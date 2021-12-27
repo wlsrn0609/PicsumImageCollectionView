@@ -24,12 +24,17 @@ class ImageViewController : UIViewController {
         
         self.view.backgroundColor = UIColor.white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.close))
         
         imageView.snp.makeConstraints{ [weak self] in
             guard let self = self else { return }
             $0.leading.trailing.top.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
         imageView.contentMode = .scaleAspectFit
+    }
+    
+    @objc func close(){
+        self.dismiss(animated: true , completion: nil)
     }
     
     @objc func save(){
