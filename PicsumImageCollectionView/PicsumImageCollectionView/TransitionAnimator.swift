@@ -16,7 +16,7 @@ class Interactor : UIPercentDrivenInteractiveTransition {
 class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 2
+        return 0.6
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -25,9 +25,9 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
            let fromImageVC = fromNaviCon.viewControllers.first as? ImageViewController
         else { return }
         
-        var afterFrame = UIScreen.main.bounds
-        afterFrame.origin.y = UIScreen.main.bounds.size.height
 
+        let afterFrame = fromImageVC.originImageFrame
+        
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
             fromImageVC.view.frame = afterFrame
             fromNaviCon.view.alpha = 0

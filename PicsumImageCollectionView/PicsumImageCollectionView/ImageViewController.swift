@@ -12,6 +12,8 @@ class ImageViewController : UIViewController {
     
     let imageView = UIImageView()
     
+    var originImageFrame : CGRect = CGRect.zero
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
