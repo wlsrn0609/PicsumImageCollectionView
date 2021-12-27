@@ -16,7 +16,7 @@ class Interactor : UIPercentDrivenInteractiveTransition {
 class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.6
+        return 0.3
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -32,7 +32,8 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         toMainVC.tempImageView?.frame = fromImageVC.imageView.frame
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
-            fromNaviCon.view.alpha = 0
+            fromImageVC.view.backgroundColor = UIColor.white.withAlphaComponent(0)
+            fromNaviCon.navigationBar.alpha = 0
             fromImageVC.imageView.frame = fromImageVC.cellFrame
             toMainVC.tempImageView?.frame = fromImageVC.cellFrame
         } completion: { _ in
@@ -43,8 +44,9 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
 }
 
 class PresentAnimator : NSObject, UIViewControllerAnimatedTransitioning {
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.6
+        return 0.3
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -70,6 +72,7 @@ class PresentAnimator : NSObject, UIViewControllerAnimatedTransitioning {
             toImageVC.imageView.frame = originFrame
             fromMainVC.tempImageView?.frame = originFrame
         } completion: { _ in
+            fromMainVC.tempImageView?.removeFromSuperview()
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         

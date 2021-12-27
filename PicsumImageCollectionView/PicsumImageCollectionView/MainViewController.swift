@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
     
     func setUI(){
         
-        self.title = "TITLE"
+        self.title = "Lorem Picsum"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = UIColor.white
         
@@ -41,10 +41,11 @@ class MainViewController: UIViewController {
             guard let self = self else { return }
             $0.top.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
-        print("imageCollectionView.contentInset:\(imageCollectionView.contentInset)")
+        
         imageCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
+        imageCollectionView.backgroundColor = UIColor.white
     }
 
 
@@ -116,7 +117,7 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
         imageVC.cellFrame = cellFrame
         imageVC.interactor = self.interactor
         let naviCon = UINavigationController(rootViewController: imageVC)
-        naviCon.modalPresentationStyle = .overFullScreen
+        naviCon.modalPresentationStyle = .overCurrentContext
         naviCon.transitioningDelegate = self
         self.present(naviCon, animated: true, completion: nil)
     }
@@ -133,9 +134,9 @@ extension MainViewController : UIViewControllerTransitioningDelegate {
         DismissAnimator()
     }
     
-    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        return interactor.hasStarted ? interactor : nil
-    }
+//    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//        return interactor.hasStarted ? interactor : nil
+//    }
     
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil

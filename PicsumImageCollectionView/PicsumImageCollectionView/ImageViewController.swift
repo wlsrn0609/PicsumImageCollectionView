@@ -38,38 +38,96 @@ class ImageViewController : UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.image = image
         
+        if let image = image {
+            imageView.frame = CGRect(x: 0, y: 0, width: SCREEN.WIDTH, height: SCREEN.WIDTH * (image.size.height / image.size.width))
+            imageView.center.y = (imageViewY + imageViewHeight) / 2
+        }
+        
+        imageVieworiginRect = imageView.frame
+        imageViewOriginCenter = imageView.center
+        
         let pan = UIPanGestureRecognizer(target: self, action: #selector(panGestureFunc(gesture:)))
         self.view.addGestureRecognizer(pan)
     }
     
+    var imageVieworiginRect : CGRect = CGRect.zero
+    var imageViewOriginCenter : CGPoint = CGPoint.zero
     @objc func panGestureFunc(gesture : UIPanGestureRecognizer){
-        let percentThreshold:CGFloat = 0.3
-        let translation = gesture.translation(in: view)
-        let verticalMovement = translation.y / view.bounds.height
-        let downwardMovement = fmaxf(Float(verticalMovement), 0)
-        let downwardMovementPercent = fminf(downwardMovement,1.0)
-        let progress = CGFloat(downwardMovementPercent)
         
-        guard let interactor = interactor else {
-            return
-        }
-
+        let move = gesture.translation(in: view)
+        let moveY = move.y
+        let moveX = move.x
+        let moveY_ratio = abs(moveY / SCREEN.HEIGHT)
+        let moveX_ratio = abs(moveX / SCREEN.WIDTH)
+//        print("moveY_ratio:\(moveY_ratio)")
+        let maxmumRatio = moveY_ratio
+//        print("maxmumRatio:\(maxmumRatio)")
+        
         switch gesture.state {
-        case .began:
-            interactor.hasStarted = true
-            dismiss(animated: true, completion: nil)
+//        case .began:
         case .changed:
-            interactor.shouldFinish = progress > percentThreshold
-            interactor.update(progress)
-        case .cancelled:
-            interactor.hasStarted = false
-            interactor.cancel()
-        case .ended:
-            interactor.hasStarted = false
-            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
+            
+            let afterFrame = CGRect(
+                x: imageVieworiginRect.origin.x + moveX,
+                y: imageVieworiginRect.origin.y + moveY,
+                width: imageVieworiginRect.size.width * (1 - maxmumRatio),
+                height: imageVieworiginRect.size.height * (1 - maxmumRatio))
+            imageView.frame = afterFrame
+            
+            var alpha = maxmumRatio * 5
+            alpha = (1 - alpha)
+            alpha = min(1, alpha)
+            alpha = max(0, alpha)
+            self.view.backgroundColor = UIColor.white.withAlphaComponent(alpha)
+            self.navigationController?.navigationBar.alpha = alpha
+        case .cancelled,.ended:
+            
+            if maxmumRatio > 0.15 {
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                UIView.animate(withDuration: 0.3) {
+                    self.imageView.frame = self.imageVieworiginRect
+                    self.view.backgroundColor = UIColor.white
+                    self.navigationController?.navigationBar.alpha = 1
+                } completion: { _ in }
+            }
+            
         default:
             break
         }
+
+
+        
+        return
+        
+        
+//        let percentThreshold:CGFloat = 0.3
+//        let translation = gesture.translation(in: view)
+//        let verticalMovement = translation.y / view.bounds.height
+//        let downwardMovement = fmaxf(Float(verticalMovement), 0)
+//        let downwardMovementPercent = fminf(downwardMovement,1.0)
+//        let progress = CGFloat(downwardMovementPercent)
+//
+//        guard let interactor = interactor else {
+//            return
+//        }
+//
+//        switch gesture.state {
+//        case .began:
+//            interactor.hasStarted = true
+//            dismiss(animated: true, completion: nil)
+//        case .changed:
+//            interactor.shouldFinish = progress > percentThreshold
+//            interactor.update(progress)
+//        case .cancelled:
+//            interactor.hasStarted = false
+//            interactor.cancel()
+//        case .ended:
+//            interactor.hasStarted = false
+//            interactor.shouldFinish ? interactor.finish() : interactor.cancel()
+//        default:
+//            break
+//        }
     }
     
     @objc func close(){
