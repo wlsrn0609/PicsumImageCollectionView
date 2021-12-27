@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
     
     let interactor = Interactor()
 
+    var tempImageView : UIImageView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -103,25 +105,19 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
         
         guard let att = collectionView.layoutAttributesForItem(at: indexPath) else { return }
         let cellFrame = collectionView.convert(att.frame, to: self.view)
+        print("cellFrame:\(cellFrame)")
 
+//        tempImageView = UIImageView(frame: cellFrame)
+//        self.view.addSubview(tempImageView!)
+//        tempImageView?.image = image
+        
         let imageVC = ImageViewController()
         imageVC.imageView.image = image
         imageVC.originImageFrame = cellFrame
         let naviCon = UINavigationController(rootViewController: imageVC)
-//        naviCon.modalPresentationStyle = .fullScreen
         naviCon.modalPresentationStyle = .overFullScreen
         naviCon.transitioningDelegate = self
         self.present(naviCon, animated: true, completion: nil)
-        
-//        if let att = collectionView.layoutAttributesForItem(at: indexPath) {
-//            let cellRect = att.frame
-//            
-//            let cellFrame = collectionView.convert(cellRect, to: self.view)
-//            
-//            let sampleView = UIView(frame: cellFrame)
-//            sampleView.backgroundColor = UIColor.red
-//            self.view.addSubview(sampleView)
-//        }
     }
 }
 

@@ -40,7 +40,7 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
 
 class PresentAnimator : NSObject, UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 2
+        return 0.6
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -55,23 +55,27 @@ class PresentAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         
         guard let image = toImageVC.imageView.image else { return }
         
-        print("일단 여기까지 오는건가")
-        
         let containerView = transitionContext.containerView
-//        containerView.insertSubview(toImageVC.view, belowSubview: fromMainVC.view)
         containerView.insertSubview(toNaviCon.view, belowSubview: fromNaviCon.view)
         
-        
-        var afterFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * (image.size.height / image.size.width))
-        afterFrame.origin.y = (UIScreen.main.bounds.size.height + afterFrame.height) / 2
-
-        
-        toImageVC.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        toNaviCon.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         toNaviCon.view.alpha = 0
+        
+        
+        toImageVC.imageView.snp.remakeConstraints{
+            $0.leading.equalTo(toImageVC.originImageFrame.origin.x)
+            $0.top.equalTo(toImageVC.originImageFrame.origin.y)
+            $0.width.equalTo(toImageVC.originImageFrame.size.width)
+            $0.height.equalTo(toImageVC.originImageFrame.size.height)
+        }
+        toImageVC.view.layoutIfNeeded()
+        
+        toImageVC.imageView.snp.remakeConstraints{
+            $0.leading.trailing.top.bottom.equalTo(toImageVC.view.safeAreaLayoutGuide)
+        }
+        
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
+            toImageVC.view.layoutIfNeeded()
             toNaviCon.view.alpha = 1
-            toImageVC.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         } completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
