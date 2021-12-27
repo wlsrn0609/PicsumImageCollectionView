@@ -91,12 +91,27 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
         imageDic[indexPath] = dataSet
         cell.dataSet = dataSet
         
-        dataSet.image
-            .map{ $0?.resizeImage(toSize: cell.imageView.frame.size) }
-            .bind(to: cell.imageView.rx.image)
-            .disposed(by: rx.disposeBag)
+        if let image = dataSet.image.value {
+            cell.imageView.image = image
+        }else{
+            dataSet.image
+                .map{ $0?.resizeImage(toSize: cell.imageView.frame.size) }
+                .subscribeOn(MainScheduler.instance)
+                .subscribe(onNext: { image in
+                    if let kCell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
+                        kCell.imageView.image = image
+//                        print("\(indexPath) kCell is not nil")
+                    }else{
+//                        print("\(indexPath) kCell is nil")
+                    }
+                })
+            //            .bind(to: cell.imageView.rx.image)
+                .disposed(by: rx.disposeBag)
+            
+            dataSet.fetch()
+        }
         
-        dataSet.fetch()
+        
         
         return cell
     }
