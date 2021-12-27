@@ -114,6 +114,7 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
         let imageVC = ImageViewController()
         imageVC.image = image
         imageVC.cellFrame = cellFrame
+        imageVC.interactor = self.interactor
         let naviCon = UINavigationController(rootViewController: imageVC)
         naviCon.modalPresentationStyle = .overFullScreen
         naviCon.transitioningDelegate = self
