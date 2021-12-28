@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import RxSwift
+import RxCocoa
 import NSObject_Rx
 
 class MainViewController: UIViewController {
@@ -22,6 +23,8 @@ class MainViewController: UIViewController {
 
     var tempImageView : UIImageView?
     
+    var viewModel : MainViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +32,7 @@ class MainViewController: UIViewController {
             .forEach{ self.view.addSubview($0) }
         
         setUI()
+        binding()
     }
     
     func setUI(){
@@ -43,15 +47,50 @@ class MainViewController: UIViewController {
         }
         
         imageCollectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
-        imageCollectionView.delegate = self
-        imageCollectionView.dataSource = self
         imageCollectionView.backgroundColor = UIColor.white
+        imageCollectionView.rx.setDelegate(self).disposed(by: rx.disposeBag)
+        
     }
 
+    func binding(){
+        
+        viewModel.picsumImages
+            .bind(to: imageCollectionView.rx.items) { collectionView, index, item in
+                
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: IndexPath(row: index, section: 0)) as? CollectionViewCell else { return UICollectionViewCell() }
+                
+                cell.imageView.image = item.image.resizeImage(toSize: cell.imageView.frame.size)
+                
+                return cell
+            }
+            .disposed(by: rx.disposeBag)
+        
+        Observable.zip(imageCollectionView.rx.itemSelected, imageCollectionView.rx.modelSelected(PicsumImage.self))
+            .subscribe { [unowned self] (indexPath, item) in
+                
+                guard let att = imageCollectionView.layoutAttributesForItem(at: indexPath) else { return }
+                let cellFrame = imageCollectionView.convert(att.frame, to: self.view)
+
+                self.tempImageView = UIImageView(frame: cellFrame)
+                self.tempImageView?.image = item.image
+                self.tempImageView?.contentMode = .scaleAspectFit
+                self.view.addSubview(self.tempImageView!)
+                
+                let imageVC = ImageViewController()
+                imageVC.image = item.image
+                imageVC.cellFrame = cellFrame
+                imageVC.interactor = self.interactor
+                let naviCon = UINavigationController(rootViewController: imageVC)
+                naviCon.modalPresentationStyle = .overCurrentContext
+                naviCon.transitioningDelegate = self
+                self.present(naviCon, animated: true, completion: nil)
+            }
+            .disposed(by: rx.disposeBag)
+    }
 
 }
 
-extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension MainViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -76,69 +115,6 @@ extension MainViewController : UICollectionViewDelegateFlowLayout, UICollectionV
         return 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        return numberOfImages
-    }
-   
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as? CollectionViewCell else { return UICollectionViewCell() }
-        
-        cell.imageView.image = nil
-        
-        let dataSet = imageDic[indexPath] ?? DataSet()
-        imageDic[indexPath] = dataSet
-        cell.dataSet = dataSet
-        
-        if let image = dataSet.image.value {
-            cell.imageView.image = image
-        }else{
-            dataSet.image
-                .map{ $0?.resizeImage(toSize: cell.imageView.frame.size) }
-                .subscribeOn(MainScheduler.instance)
-                .subscribe(onNext: { image in
-                    if let kCell = collectionView.cellForItem(at: indexPath) as? CollectionViewCell {
-                        kCell.imageView.image = image
-//                        print("\(indexPath) kCell is not nil")
-                    }else{
-//                        print("\(indexPath) kCell is nil")
-                    }
-                })
-            //            .bind(to: cell.imageView.rx.image)
-                .disposed(by: rx.disposeBag)
-            
-            dataSet.fetch()
-        }
-        
-        
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(#function)
-        
-        guard let dataSet = imageDic[indexPath],
-              let image = dataSet.image.value else { return }
-        
-        guard let att = collectionView.layoutAttributesForItem(at: indexPath) else { return }
-        let cellFrame = collectionView.convert(att.frame, to: self.view)
-
-        tempImageView = UIImageView(frame: cellFrame)
-        tempImageView?.image = image
-        tempImageView?.contentMode = .scaleAspectFit
-        self.view.addSubview(tempImageView!)
-        
-        let imageVC = ImageViewController()
-        imageVC.image = image
-        imageVC.cellFrame = cellFrame
-        imageVC.interactor = self.interactor
-        let naviCon = UINavigationController(rootViewController: imageVC)
-        naviCon.modalPresentationStyle = .overCurrentContext
-        naviCon.transitioningDelegate = self
-        self.present(naviCon, animated: true, completion: nil)
-    }
 }
 
 

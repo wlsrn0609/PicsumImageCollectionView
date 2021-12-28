@@ -23,12 +23,12 @@ class DataSet {
     }
     
     func fetch(){
-        disposable = ImageAPI().fetch()
-            .filter{ $0 != nil }
-            .drive(image)
+//        disposable = ImageAPI().fetch()
+//            .filter{ $0 != nil }
+//            .drive(image)
         
-        disposable?
-            .disposed(by: disposeBag)
+//        disposable?
+//            .disposed(by: disposeBag)
     }
     
 }

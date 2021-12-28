@@ -21,6 +21,9 @@
 		785176832775C26E00BFBF6C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176822775C26E00BFBF6C /* ImageViewController.swift */; };
 		785176852779499600BFBF6C /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176842779499600BFBF6C /* TransitionAnimator.swift */; };
 		785176872779865000BFBF6C /* AppDelegate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785176862779865000BFBF6C /* AppDelegate+.swift */; };
+		78781F1C277ACE6000A5A3B1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78781F1B277ACE6000A5A3B1 /* MainViewModel.swift */; };
+		78781F1E277ACE8D00A5A3B1 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78781F1D277ACE8D00A5A3B1 /* ImageViewModel.swift */; };
+		78781F22277ACFB300A5A3B1 /* PicsumImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78781F21277ACFB300A5A3B1 /* PicsumImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		785176822775C26E00BFBF6C /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		785176842779499600BFBF6C /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
 		785176862779865000BFBF6C /* AppDelegate+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+.swift"; sourceTree = "<group>"; };
+		78781F1B277ACE6000A5A3B1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		78781F1D277ACE8D00A5A3B1 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		78781F21277ACFB300A5A3B1 /* PicsumImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumImage.swift; sourceTree = "<group>"; };
 		88740DB2C858364B203D316A /* Pods-PicsumImageCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicsumImageCollectionView.debug.xcconfig"; path = "Target Support Files/Pods-PicsumImageCollectionView/Pods-PicsumImageCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,21 +92,72 @@
 			isa = PBXGroup;
 			children = (
 				785176632775985E00BFBF6C /* AppDelegate.swift */,
-				785176672775985E00BFBF6C /* MainViewController.swift */,
-				785176822775C26E00BFBF6C /* ImageViewController.swift */,
-				7851767927759F8A00BFBF6C /* CollectionViewCell.swift */,
-				7851767727759DBA00BFBF6C /* UIColor+.swift */,
-				785176802775B7F400BFBF6C /* UIimage+.swift */,
-				7851767B2775B09500BFBF6C /* ImageAPI.swift */,
-				7851767E2775B3EE00BFBF6C /* DataSet.swift */,
-				785176842779499600BFBF6C /* TransitionAnimator.swift */,
-				785176862779865000BFBF6C /* AppDelegate+.swift */,
+				78781F18277ACE2F00A5A3B1 /* ViewModel */,
+				78781F1F277ACEAB00A5A3B1 /* ViewController */,
+				78781F20277ACF8500A5A3B1 /* Model */,
+				78781F23277AD00C00A5A3B1 /* Extention */,
+				78781F25277AD02800A5A3B1 /* Service */,
+				78781F24277AD01800A5A3B1 /* ViewTransition */,
 				785176692775985E00BFBF6C /* Main.storyboard */,
 				7851766C2775985F00BFBF6C /* Assets.xcassets */,
 				7851766E2775985F00BFBF6C /* LaunchScreen.storyboard */,
 				785176712775985F00BFBF6C /* Info.plist */,
 			);
 			path = PicsumImageCollectionView;
+			sourceTree = "<group>";
+		};
+		78781F18277ACE2F00A5A3B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				78781F1B277ACE6000A5A3B1 /* MainViewModel.swift */,
+				78781F1D277ACE8D00A5A3B1 /* ImageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		78781F1F277ACEAB00A5A3B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				785176672775985E00BFBF6C /* MainViewController.swift */,
+				785176822775C26E00BFBF6C /* ImageViewController.swift */,
+				7851767927759F8A00BFBF6C /* CollectionViewCell.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		78781F20277ACF8500A5A3B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7851767E2775B3EE00BFBF6C /* DataSet.swift */,
+				78781F21277ACFB300A5A3B1 /* PicsumImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78781F23277AD00C00A5A3B1 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				7851767727759DBA00BFBF6C /* UIColor+.swift */,
+				785176802775B7F400BFBF6C /* UIimage+.swift */,
+				785176862779865000BFBF6C /* AppDelegate+.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		78781F24277AD01800A5A3B1 /* ViewTransition */ = {
+			isa = PBXGroup;
+			children = (
+				785176842779499600BFBF6C /* TransitionAnimator.swift */,
+			);
+			path = ViewTransition;
+			sourceTree = "<group>";
+		};
+		78781F25277AD02800A5A3B1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7851767B2775B09500BFBF6C /* ImageAPI.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		B12034CE97D29550B01BB8FF /* Pods */ = {
@@ -227,12 +284,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78781F1E277ACE8D00A5A3B1 /* ImageViewModel.swift in Sources */,
 				7851767F2775B3EE00BFBF6C /* DataSet.swift in Sources */,
 				785176682775985E00BFBF6C /* MainViewController.swift in Sources */,
 				785176852779499600BFBF6C /* TransitionAnimator.swift in Sources */,
 				785176642775985E00BFBF6C /* AppDelegate.swift in Sources */,
 				785176872779865000BFBF6C /* AppDelegate+.swift in Sources */,
+				78781F1C277ACE6000A5A3B1 /* MainViewModel.swift in Sources */,
 				7851767A27759F8A00BFBF6C /* CollectionViewCell.swift in Sources */,
+				78781F22277ACFB300A5A3B1 /* PicsumImage.swift in Sources */,
 				7851767C2775B09500BFBF6C /* ImageAPI.swift in Sources */,
 				7851767827759DBA00BFBF6C /* UIColor+.swift in Sources */,
 				785176832775C26E00BFBF6C /* ImageViewController.swift in Sources */,
