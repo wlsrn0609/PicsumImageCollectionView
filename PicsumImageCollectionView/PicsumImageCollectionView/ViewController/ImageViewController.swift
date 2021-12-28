@@ -14,7 +14,8 @@ class ImageViewController : UIViewController {
 
     let imageView = UIImageView()
     var image : UIImage?
-    var cellFrame : CGRect = CGRect.zero
+    
+    var indexPath = IndexPath()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +40,9 @@ class ImageViewController : UIViewController {
         imageView.image = image
         
         if let image = image {
-            imageView.frame = CGRect(x: 0, y: 0, width: SCREEN.WIDTH, height: SCREEN.WIDTH * (image.size.height / image.size.width))
-            imageView.center.y = (imageViewY + imageViewHeight) / 2
+            imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.width * (image.size.height / image.size.width))
+            imageView.center = self.view.center
+//            imageView.center.y = (imageViewY + imageViewHeight) / 2
         }
         
         imageVieworiginRect = imageView.frame
@@ -132,6 +134,41 @@ class ImageViewController : UIViewController {
             self.present(alertCon, animated: true, completion: nil)
         }
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(#function + ":\(size)")
+        
+        
+        UIView.animate(withDuration: coordinator.transitionDuration) { [weak self] in
+            guard let self = self,
+                  let image = self.image else { return }
+            self.imageView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height * (image.size.width / image.size.height))
+            self.imageView.center = CGPoint(x: size.width / 2, y: size.height / 2)
+        } completion: { _ in
+        
+        }
+
+        
+        
+        
+        
+        
+        /*
+         top:Optional(50.0)
+         bottom:Optional(34.0)
+         height:50.0
+         */
+//        let naviBarHeight = self.navigationController?.navigationBar.frame.size.height ?? 50
+//        let imageViewY = naviBarHeight + statusBarHeight
+//        let bottomSafeAreaHeight = appDel.window?.safeAreaInsets.bottom ?? 0
+//        let imageViewHeight = SCREEN.HEIGHT - imageViewY - bottomSafeAreaHeight
+//
+//        if let image = image {
+//            imageView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height * (image.size.height / image.size.width))
+//            imageView.center.y = (imageViewY + imageViewHeight) / 2
+//        }
+    }
+    
     
     func showHelperCircle(){
         let center = CGPoint(x: view.bounds.width * 0.5, y: 100)

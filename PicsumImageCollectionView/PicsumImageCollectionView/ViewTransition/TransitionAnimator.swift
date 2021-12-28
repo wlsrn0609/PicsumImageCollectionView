@@ -30,12 +30,18 @@ class DismissAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         else { return }
         
         toMainVC.tempImageView?.frame = fromImageVC.imageView.frame
+
+        
+        let imageCollectionView = toMainVC.imageCollectionView
+        guard let att = imageCollectionView.layoutAttributesForItem(at: fromImageVC.indexPath) else { return }
+        let cellFrame = imageCollectionView.convert(att.frame, to: toMainVC.view)
+
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
             fromImageVC.view.backgroundColor = UIColor.white.withAlphaComponent(0)
             fromNaviCon.navigationBar.alpha = 0
-            fromImageVC.imageView.frame = fromImageVC.cellFrame
-            toMainVC.tempImageView?.frame = fromImageVC.cellFrame
+            fromImageVC.imageView.frame = cellFrame
+            toMainVC.tempImageView?.frame = cellFrame
         } completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
@@ -65,7 +71,14 @@ class PresentAnimator : NSObject, UIViewControllerAnimatedTransitioning {
         toNaviCon.view.alpha = 0
         
         let originFrame = toImageVC.imageView.frame
-        toImageVC.imageView.frame = toImageVC.cellFrame
+        
+
+        let imageCollectionView = fromMainVC.imageCollectionView
+        guard let att = imageCollectionView.layoutAttributesForItem(at: toImageVC.indexPath) else { return }
+        let cellFrame = imageCollectionView.convert(att.frame, to: fromMainVC.view)
+        toImageVC.imageView.frame = cellFrame
+        
+        
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
             toNaviCon.view.alpha = 1

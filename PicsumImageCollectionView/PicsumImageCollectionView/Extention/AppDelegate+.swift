@@ -10,7 +10,11 @@ import UIKit
 
 let appDel = (UIApplication.shared.delegate as! AppDelegate)
 
-let statusBarHeight = appDel.window?.safeAreaInsets.top ?? UIApplication.shared.statusBarFrame.size.height
+var statusBarHeight : CGFloat {
+    let top = appDel.window?.safeAreaInsets.top
+    let height = UIApplication.shared.statusBarFrame.size.height
+    return top ?? height
+}
 
 struct SCREEN {
     static var WIDTH : CGFloat = { UIScreen.main.bounds.size.width }()

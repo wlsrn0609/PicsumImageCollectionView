@@ -78,7 +78,7 @@ class MainViewController: UIViewController {
                 
                 let imageVC = ImageViewController()
                 imageVC.image = item.image
-                imageVC.cellFrame = cellFrame
+                imageVC.indexPath = indexPath
                 imageVC.interactor = self.interactor
                 let naviCon = UINavigationController(rootViewController: imageVC)
                 naviCon.modalPresentationStyle = .overCurrentContext
